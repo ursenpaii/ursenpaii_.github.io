@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="https://fonts.googleapis.com/css?family=Bangers|Covered+By+Your+Grace" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="css/animate.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+  <title>Hangman!</title>
+  <style>
+  	body {
+  		font-family: 'Covered By Your Grace', cursive;
+  	}
+  	.page-game {
+  		display: none;
+  	}
+  	.page-start h1 {
+  		text-align: center;
+  		margin: 50px 0;
+  	}
+  	.page-start .team-login {
+  		height: 300px;
+  		width: 400px;
+  		border: 1px solid grey;
+  		margin: 20px auto;
+  		border-radius: 15px;
+  	}
+  	.page-start .team-title {
+  		color: #fff;
+  		background: #800000;
+  		padding: 10px 0;
+  		border-radius: 8px 8px 0 0;
+  		text-align: center;
+  	}
+  	.team-title h3 {
+  		font-size: 18px;
+  		margin: 0;
+  	}
+  	.page-start .team-body {
+  		padding: 20px;
+  	}
+  	.page-start #submit-team {
+  		width: 50%;
+  		background: #800000;
+  		border: 1px solid #800000;
+  		box-shadow: none;
+  	}
+  </style>
+</head>
+<body>
+
+<div class="page-start">
+	<h1>Welcome to Hangman!</h1>
+
+	<div class="team-login">
+		<div class="team-title">
+			<h3>Please enter your team to continue.</h3>
+		</div>
+		<div class="team-body">
+			<form>
+				<div class="form-group">
+					<label>Team One:</label>
+					<input type="text" name="team-one" id="team-one" class="form-control" placeholder="Team One Name" autocomplete="off" value="">
+				</div>
+				<div class="form-group">
+					<label>Team Two:</label>
+					<input type="text" name="team-two" id="team-two" class="form-control" placeholder="Team Two Name" autocomplete="off" value="">
+				</div>
+				<div class="form-group text-center">
+					<button type="button" id="submit-team" class="btn btn-primary">Submit</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<div class="page-game">
+	<h1>CAN YOU SAVE THE DAY?</h1>
+	<h2>One of your teammate has been accused of stealing food from dry pantry! Help him escape death by guessing the right word!</h2>
+
+	<style>
+	.team-container {
+		display: block;
+		margin-top: 50px;
+		margin-bottom: 20px;
+		text-align: left;
+	}	
+	.t-1, .t-2 {
+		display: block;
+	}
+	</style>
+
+	<div class="team-container">
+		<div>
+			<span class="t-1"></span>
+		<div>
+			<span class="t-2"></span>
+		</div>
+	</div>
+
+	<div id="container">
+
+	<div id="playerOne">
+	<h2>Player One: Enter your word!</h2>
+	<form id="enterWord">
+	  <input type="text" id="word-field" min="1" placeholder="Enter in one word" autocomplete="off">
+	  <button id="submit-word"> Submit your word!</button>
+	</form>
+	</div>
+
+	<div id="hangman-counter">
+	  <img src="hangman-stage.png" alt="body part 1"></div>
+
+	<div id="playerTwo">
+
+	<h2>Player Two: Click on the letter to guess the word:</h2>
+	<div class= "alpha">
+	<span id="a"><a href="#">A</a></span>
+	<span id="b"><a href="#">B</a></span>
+	<span id="c"><a href="#">C</a></span>
+	<span id="d"><a href="#">D</a></span>
+	<span id="e"><a href="#">E</a></span>
+	<span id="f"><a href="#">F</a></span>
+	<span id="g"><a href="#">G</a></span>
+	<span id="h"><a href="#">H</a></span>
+	<span id="i"><a href="#">I</a></span>
+	<span id="j"><a href="#">J</a></span>
+	<span id="k"><a href="#">K</a></span>
+	<span id="l"><a href="#">L</a></span>
+	<span id="m"><a href="#">M</a></span>
+	<span id="n"><a href="#">N</a></span>
+	<span id="o"><a href="#">O</a></span>
+	<span id="p"><a href="#">P</a></span>
+	<span id="q"><a href="#">Q</a></span>
+	<span id="r"><a href="#">R</a></span>
+	<span id="s"><a href="#">S</a></span>
+	<span id="t"><a href="#">T</a></span>
+	<span id="u"><a href="#">U</a></span>
+	<span id="v"><a href="#">V</a></span>
+	<span id="w"><a href="#">W</a></span>
+	<span id="x"><a href="#">X</a></span>
+	<span id="y"><a href="#">Y</a></span>
+	<span id="z"><a href="#">Z</a></span>
+	</div>
+
+	<div class="dashes">
+	<h2>This word is <span class="w-l">0</span> letters long</h2>
+	<div class="p-answer"></div>
+	</div>
+	</div>
+	</div>
+
+	<footer class="clearfix">
+	  <p>Instructions: This is a two team game. One team picks a word and then the other tries to guess it by making repeated guesses to letters in the word. If the letter is not in the word then a body part will be added to your friend. Good luck!</p>
+	</footer>
+
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="main.js"></script>
+</body>
+</html>
